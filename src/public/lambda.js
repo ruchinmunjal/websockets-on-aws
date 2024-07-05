@@ -1,43 +1,61 @@
-const AWS = require('aws-sdk')
+import { ApiGatewayManagementApiClient,PostToConnectionCommand } from '@aws-sdk/client-apigatewaymanagementapi';
 
-const api = new AWS.ApiGatewayManagementApi({
-  endpoint: '<Enter your API Endpoint here>'
-})
+import { DynamoDB } from '@aws-sdk/client-dynamodb';
 
-const options = ['Yes', 'No', 'Maybe', 'Probably', 'Probably Not']
-
-exports.handler = async (event) => {
-    console.log(event)
-
-    const route = event.requestContext.routeKey
-    const connectionId = event.requestContext.connectionId
-
-    switch (route) {
-        case '$connect':
-            console.log('Connection occurred')
-            break
-        case '$disconnect':
-            console.log('Disconnection occurred')
-            break
-        case 'message':
-            console.log('Received message:', event.requestContext.body)
-            await replyToMessage(options[Math.floor(Math.random() * options.length)], connectionId)
-            break
-        default:
-            console.log('Received unknown route:', route)
-    }
-
-    return {
-      statusCode: 200
-    }
+const createApiGatewayManagementClient = (event) =>{
+  const endpoint = `https://${event.requestContext.domainName}/${event.requestContext.stage}`;
+  return new ApiGatewayManagementApiClient({endpoint})
 }
 
-async function replyToMessage(response, connectionId) {
-    const data = { message: response }
-    const params = {
-      ConnectionId: connectionId,
-      Data: Buffer.from(JSON.stringify(data))
-    }
 
-    return api.postToConnection(params).promise()
-}
+const options=['Yes','No','Maybe','Probably','Are You Crazy'];
+export const handler = async (event) => {
+  const client = createApiGatewayManagementClient(event);
+  const route = event.requestContext.routeKey;
+  const connectionId = event.requestContext.connectionId;
+  
+  switch (route) {
+    case "$connect":
+      console.log("Connection established with client for connectionId: " + connectionId);
+      break;
+    case "$disconnect":
+      console.log("Connection closed for connectionId: " + connectionId);
+      break;
+    case "report":
+      console.log("data requested for route report : " + event);
+      const data= getData(options);
+      await sendDataUri(client,data,connectionId)
+      
+      break;
+    default:
+      console.log("Unknown route");
+      
+  }
+  
+  
+  // TODO implement
+  const response = {
+    statusCode: 200,
+    
+  };
+  return response;
+};
+
+async function sendDataUri(client,response, connectionId){
+  const data ={
+    filteredData:response
+  }
+  const postToConnectionCommand = new PostToConnectionCommand({
+    ConnectionId:connectionId,
+    Data: Buffer.from(JSON.stringify(data))
+  })
+ 
+  return await client.send(postToConnectionCommand);
+  
+  }
+  
+  function getData(options){
+    return options[Math.floor(Math.random() * options.length)];    
+  }
+
+
