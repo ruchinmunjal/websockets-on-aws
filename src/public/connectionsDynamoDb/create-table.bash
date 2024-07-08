@@ -1,0 +1,1 @@
+aws dynamodb create-table --table-name WebSocketConnections --attribute-definitions AttributeName=connectionId,AttributeType=S --key-schema AttributeName=connectionId,KeyType=HASH --billing-mode PAY_PER_REQUEST
