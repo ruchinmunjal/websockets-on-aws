@@ -15,51 +15,70 @@ const ddbClient = new DynamoDBClient({ region: "eu-west-2" });
 const ddbDocClient = DynamoDBDocumentClient.from(ddbClient);
 
 export const handler = async (event) => {
-  console.log("Event received as : " + JSON.stringify(event, undefined, 2));
   if (event.requestContext && event.requestContext.routeKey) {
     const { routeKey, connectionId } = event.requestContext;
 
     if (routeKey === "$connect") {
+      console.log("Handling $connect route");
       return connectHandler(event);
     } else if (routeKey === "$disconnect") {
+      console.log("Handling $connect route");
       return deleteConnection(connectionId);
+    } else if (routeKey === "report") {
+      try {
+        const body = JSON.parse(event.body) || {};
+        console.log("Body: ", JSON.stringify(body, undefined, 2));
+        //const connectionId = connectionId || body.connectionId; // Assuming connectionId is sent in the message body
+        if (!connectionId) {
+          console.error("ConnectionId is required");
+          return { statusCode: 400, body: "ConnectionId is required" };
+        }
+        return reportRouteHandler(body, connectionId);
+      } catch (error) {
+        console.error("Error parsing event body:", error);
+        return { statusCode: 400, body: "Invalid request body" };
+      }
     }
-  }
-  try {
-    const body = event || {};
-    console.log("Body: ", JSON.stringify(body, undefined, 2));
-    const connectionId = body.connectionId; // Assuming connectionId is sent in the message body
-    if (!connectionId) {
-      console.error("ConnectionId is required");
-      return { statusCode: 400, body: "ConnectionId is required" };
-    }
-    return customRouteHandler(event, connectionId);
-  } catch (error) {
-    console.error("Error parsing event body:", error);
-    return { statusCode: 400, body: "Invalid request body" };
   }
 };
 
 const connectHandler = async ({
   requestContext: { connectionId, domainName, stage },
 }) => {
-  const params = {
-    TableName: "WebSocketConnections",
-    Item: { connectionId, domainName, stage },
-  };
-
+  console.log(
+    `Handling $connect route for connectionId: ${connectionId}, domainName: ${domainName}, stage: ${stage}`
+  );
+  await storeConnectionInfo(connectionId, domainName, stage);
+  console.log("Connection details saved in dynamo");
   try {
-    await ddbDocClient.send(new PutCommand(params));
-    return {
+    const res = {
       statusCode: 200,
-      body: "Connected with Connection Id: " + connectionId,
+      body: { message: "Connected", connectionId: connectionId },
     };
+    // await sendMessageToClient(domainName, stage, res, connectionId);
   } catch (err) {
-    console.error("Error storing connection info:", err);
+    console.error("Error sending connection info:", err);
     return { statusCode: 500, body: "Failed to connect." };
   }
+  return { statusCode: 200, body: "Connected." };
 };
-
+const storeConnectionInfo = async (connectionId, domainName, stage) => {
+  try {
+    const params = {
+      TableName: "WebSocketConnections",
+      Item: {
+        connectionId: connectionId,
+        domainName: domainName,
+        stage: stage,
+        createdAt: new Date().toISOString(),
+      },
+    };
+    await ddbDocClient.send(new PutCommand(params));
+    console.log("Connection details saved in dynamo");
+  } catch (e) {
+    console.error("Error storing connection info:", e);
+  }
+};
 const deleteConnection = async (connectionId) => {
   const params = {
     TableName: "WebSocketConnections",
@@ -76,8 +95,8 @@ const deleteConnection = async (connectionId) => {
   }
 };
 
-const customRouteHandler = async (event, connectionId) => {
-  console.log("CUSTOM handler invoked");
+const reportRouteHandler = async (event, connectionId) => {
+  console.log("report handler invoked");
   try {
     const connectionInfo = await getConnectionInfo(connectionId);
 
@@ -85,26 +104,25 @@ const customRouteHandler = async (event, connectionId) => {
       console.error("Connection info not found");
       return { statusCode: 400, body: "Connection not found" };
     }
-    
-    console.info("connectionInfo found " + JSON.stringify(connectionInfo,undefined,2));
+
+    console.info(
+      "connectionInfo found " + JSON.stringify(connectionInfo, undefined, 2)
+    );
 
     const { domainName, stage } = connectionInfo;
     const { wrapperId = null, startDate = null, endDate = null } = event || {};
-    
+
     console.log(
       `wrapperId: ${wrapperId}, startDate: ${startDate}, endDate: ${endDate}, domain: ${domainName}, stage: ${stage}`
     );
-    if(wrapperId){
-      
+    if (wrapperId) {
       const res = await getData(wrapperId.toString(), startDate, endDate);
-      console.log("res: ", JSON.stringify(res, undefined, 2));
-      await sendMessageToClient(domainName, stage, res, connectionId);  
-    }
-    else {
+      await sendMessageToClient(domainName, stage, res, connectionId);
+    } else {
       return { statusCode: 404, body: "Bad Request" };
     }
 
-   const response = {
+    const response = {
       statusCode: 200,
     };
 
@@ -147,16 +165,15 @@ async function getData(wrapperId, startDate, endDate) {
     const params = {
       TableName: "prd-reporting",
       KeyConditionExpression:
-        "wrapper_no = :wrapperId AND valuation_date BETWEEN :startDate AND :endDate" ,
+        "wrapper_no = :wrapperId AND valuation_date BETWEEN :startDate AND :endDate",
       ExpressionAttributeValues: {
         ":wrapperId": wrapperId,
         ":startDate": startDate,
-        ":endDate": endDate
-      }
-      
+        ":endDate": endDate,
+      },
     };
     if (lastEvaluatedKey) {
-        params.ExclusiveStartKey = lastEvaluatedKey;
+      params.ExclusiveStartKey = lastEvaluatedKey;
     }
 
     try {
@@ -174,6 +191,9 @@ async function getData(wrapperId, startDate, endDate) {
       throw error;
     }
   } while (lastEvaluatedKey);
-  console.log("items received from dynamo: ", JSON.stringify(items, undefined, 2));
+  console.log(
+    "items received from dynamo: ",
+    JSON.stringify(items, undefined, 2)
+  );
   return items;
 }
