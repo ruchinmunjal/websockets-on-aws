@@ -1,0 +1,24 @@
+{
+  "requestContext": {
+    "routeKey": "$default",
+    "messageId": "aegnhet_LPECE9A=",
+    "eventType": "MESSAGE",
+    "extendedRequestId": "aegnhHOtLPEFwFw=",
+    "requestTime": "06/Jul/2024:06:17:07 +0000",
+    "messageDirection": "IN",
+    "stage": "production",
+    "connectedAt": 1720246614499,
+    "requestTimeEpoch": 1720246627095,
+    "identity": { "sourceIp": "86.146.0.148" },
+    "requestId": "aegnhHOtLPEFwFw=",
+    "domainName": "qsr2p7233l.execute-api.eu-west-2.amazonaws.com",
+    "connectionId": "aegljeturPECE9A=",
+    "apiId": "qsr2p7233l"
+  },
+  "body": {
+    "action": "report",
+    "wrappers": [{ "wrapperId": 12345, "status": "Active" }]
+  },
+  "isBase64Encoded": false,
+  "route":"report"
+}

@@ -1,0 +1,634 @@
+{
+    "prd-reporting": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2022-12-31"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "0"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "0"
+                    },
+                    "money_out": {
+                        "N": "0"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "62805.58"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2023-01-01"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "-2245.14"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "44302.7"
+                    },
+                    "money_out": {
+                        "N": "-2245.14"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "62805.58"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2023-01-02"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "-2245.14"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "44302.7"
+                    },
+                    "money_out": {
+                        "N": "-2245.14"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "62805.58"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2023-01-03"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "-2245.14"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "44302.7"
+                    },
+                    "money_out": {
+                        "N": "-2245.14"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "62805.58"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2023-01-04"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "-2245.14"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "44302.7"
+                    },
+                    "money_out": {
+                        "N": "-2245.14"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "63759.08"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2023-01-05"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "-2245.14"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "44302.7"
+                    },
+                    "money_out": {
+                        "N": "-2245.14"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "64137.64"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2023-01-06"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "-2245.14"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "44302.7"
+                    },
+                    "money_out": {
+                        "N": "-2245.14"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "64174.37"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2023-01-07"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "-2245.14"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "44302.7"
+                    },
+                    "money_out": {
+                        "N": "-2245.14"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "64174.37"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2023-01-08"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "-2245.14"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "44302.7"
+                    },
+                    "money_out": {
+                        "N": "-2245.14"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "64174.37"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2023-01-09"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "-2245.14"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "44302.7"
+                    },
+                    "money_out": {
+                        "N": "-2245.14"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "64530.76"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2023-01-10"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "-2245.14"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "44302.7"
+                    },
+                    "money_out": {
+                        "N": "-2245.14"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "64667.04"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2023-01-11"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "-2245.14"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "44302.7"
+                    },
+                    "money_out": {
+                        "N": "-2245.14"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "64667.04"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2023-01-12"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "-2245.14"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "44302.7"
+                    },
+                    "money_out": {
+                        "N": "-2245.14"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "65551.19"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2023-01-13"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "-2245.14"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "44302.7"
+                    },
+                    "money_out": {
+                        "N": "-2245.14"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "65978.53"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "wrapper_no": {
+                        "S": "11132018"
+                    },
+                    "valuation_date": {
+                        "S": "2023-01-14"
+                    },
+                    "adhoc_charges": {
+                        "N": "0"
+                    },
+                    "annual_charges": {
+                        "N": "-2245.14"
+                    },
+                    "dfm_charges": {
+                        "N": "0"
+                    },
+                    "initial_charges": {
+                        "N": "0"
+                    },
+                    "investment_income": {
+                        "N": "0"
+                    },
+                    "money_in": {
+                        "N": "44302.7"
+                    },
+                    "money_out": {
+                        "N": "-2245.14"
+                    },
+                    "ongoing_charges": {
+                        "N": "0"
+                    },
+                    "wrapper_cash_value": {
+                        "N": "164.65"
+                    },
+                    "wrapper_value": {
+                        "N": "65978.53"
+                    }
+                }
+            }
+        }
+    ]
+}

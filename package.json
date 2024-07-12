@@ -1,0 +1,15 @@
+{
+  "name": "websockets-on-aws",
+  "version": "1.0.0",
+  "description": "[![Working with WebSockets on AWS](https://img.youtube.com/vi/ZuoZpf3JnY8/0.jpg)](https://www.youtube.com/watch?v=ZuoZpf3JnY8)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1659.0"
+  }
+}
